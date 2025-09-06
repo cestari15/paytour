@@ -68,7 +68,8 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="cargo_desejado" name="cargo_desejado" placeholder="Cargo Desejado">
+                    <input type="text" class="form-control" id="cargo_desejado" name="cargo_desejado"
+                        placeholder="Cargo Desejado">
                     <label for="cargo_desejado">Cargo Desejado</label>
                     <div class="invalid-feedback"></div>
                 </div>
@@ -100,12 +101,13 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="date" class="form-control" id="data_hora" name="data_hora">
+                    <input type="datetime-local" class="form-control" id="data_hora" name="data_hora">
                     <label for="data_hora">Data e Hora</label>
                     <div class="invalid-feedback"></div>
                 </div>
 
-                <button type="submit" class="btn btn-primary col-12 col-md-auto my-4" style="background-color: #7864d0;">Cadastrar</button>
+                <button type="submit" class="btn btn-primary col-12 col-md-auto my-4"
+                    style="background-color: #7864d0;">Cadastrar</button>
             </form>
 
             <div class="col-md-6 row align-items-center">
@@ -137,27 +139,29 @@
             const formData = new FormData(form);
 
             axios.post("{{ route('formularios.store') }}", formData, {
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.data.success === false) {
-                    const errors = response.data.error;
-                    for (const field in errors) {
-                        const input = document.getElementById(field);
-                        if (input) {
-                            input.classList.add('is-invalid');
-                            input.parentElement.querySelector('.invalid-feedback').innerText = errors[field][0];
-                        }
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                            'content'),
+                        'Accept': 'application/json'
                     }
-                } else {
-                    alert('Cadastro realizado com sucesso!');
-                    form.reset();
-                }
-            })
-            .catch(error => console.log(error));
+                })
+                .then(response => {
+                    if (response.data.success === false) {
+                        const errors = response.data.error;
+                        for (const field in errors) {
+                            const input = document.getElementById(field);
+                            if (input) {
+                                input.classList.add('is-invalid');
+                                input.parentElement.querySelector('.invalid-feedback').innerText = errors[field]
+                                    [0];
+                            }
+                        }
+                    } else {
+                        alert('Cadastro realizado com sucesso!');
+                        form.reset();
+                    }
+                })
+                .catch(error => console.log(error));
         });
     </script>
 </body>
