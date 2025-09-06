@@ -1,0 +1,144 @@
+/* resources/css/footer.css */
+
+body {
+    margin: 0;
+    background: #1f1d58;
+    font-family: "Euclid Circular A", "Poppins", sans-serif;
+    color: #f7f7f7;
+}
+
+html, body {
+    height: 100%;
+}
+
+footer {
+    color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    margin: 0 30px;
+}
+
+footer.top {
+    display: grid;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 20px;
+    padding-top: 60px;
+    gap: 30px;
+}
+
+footer.top > img {
+    display: block;
+    height: 50px;
+    margin: 0 auto 50px;
+}
+
+footer.top .links {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.links-column {
+    display: grid;
+    gap: 10px;
+    text-align: center;
+}
+
+footer h2 {
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.96);
+}
+
+footer p {
+    margin: 0;
+    font-size: 12px;
+}
+
+footer.top .socials {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    height: 56px;
+}
+
+footer.top .socials > a {
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+}
+
+footer.bottom {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer.bottom .legal a {
+    margin-left: 4px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+
+@media (min-width: 400px) {
+    .links-column {
+        text-align: left;
+    }
+
+    footer.top .links {
+        grid-template-columns: repeat(2, 1fr);
+        margin-right: 50px;
+    }
+
+    footer.bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    footer.top .socials {
+        left: 0;
+        transform: none;
+    }
+
+    footer.top > img {
+        margin: 0 0 50px 0;
+    }
+}
+
+@media (min-width: 640px) {
+    footer {
+        margin: 0 auto;
+        max-width: 580px;
+        padding: 0;
+    }
+
+    footer.top .links {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    footer.top .socials {
+        position: static;
+    }
+
+    footer.bottom {
+        justify-content: flex-start;
+    }
+
+    .socials-column h2,
+    .socials-column p {
+        display: block;
+    }
+}
