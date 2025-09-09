@@ -26,7 +26,7 @@ class FormularioController extends Controller
 
     // Cadastro
 
-    public function store(Request $request)
+    public function store(FormularioFormRequest $request)
     {
         // Validação
         $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
