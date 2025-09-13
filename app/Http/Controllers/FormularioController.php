@@ -8,20 +8,15 @@ use App\Mail\FormularioCadastradoMail;
 use App\Models\Formulario;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Mail;
 
 class FormularioController extends Controller
 {
-    // Exibir formulário de edição
-    public function editarView($id)
+
+      public function create(): View
     {
-        $formulario = Formulario::find($id);
-
-        if (!$formulario) {
-            return redirect()->back()->with('error', 'Currículo não encontrado.');
-        }
-
-        return view('formulario_update', compact('formulario'));
+        return view('layouts.formulario'); // resources/views/layouts/formulario.blade.php
     }
 
     // Cadastro
@@ -85,7 +80,7 @@ class FormularioController extends Controller
 
 
     // Atualizar
-    public function update(FormularioUpdateFormRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $formulario = Formulario::find($id);
         if (!$formulario) {

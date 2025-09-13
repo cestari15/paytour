@@ -26,8 +26,8 @@ class FormularioFormRequest extends FormRequest
         return [
             'nome' => 'required|max:120|min:5',
             'email'  => 'required|max:120|email|unique:formularios,email,' . $this->id,
-            'telefone' => 'required|max:20|min:11',
-            'data_hora' => 'required|date',
+            'telefone' => 'required|regex:/^\d{10,11}$/',
+            'data_hora' => 'required|date|after_or_equal:today',
             'cargo_desejado' => 'required|max:120|min:2',
             'escolaridade' => 'required|max:100|min:2',
             'observacoes' => 'max:180|',
@@ -73,7 +73,7 @@ class FormularioFormRequest extends FormRequest
             'escolaridade.required' => 'O campo Escolaridade é obrigatório.',
             //Observações
             'observacoes.max' => 'O campo Observações não pode ter mais de 180 caracteres.',
-        
+
             //Arquivo
             'arquivo.required' => 'O envio do arquivo é obrigatório.',
             'arquivo.file'     => 'O campo deve ser um arquivo válido.',

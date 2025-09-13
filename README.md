@@ -31,6 +31,15 @@ Formulário web para envio de currículos, desenvolvido em Laravel 10, com valid
 
 1. Clone o repositório:
 
-```bash
-git clone https://github.com/seuusuario/projeto-formulario.git
-cd projeto-formulario
+git clone https://github.com/cestari15/paytour.git
+cd paytour
+composer update
+cp .env.example .env
+# Configure o banco de dados e dados de e-mail no arquivo .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
+
+Acesse o formulário no navegador:
+
+http://127.0.0.1:8000/formulario
